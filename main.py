@@ -19,7 +19,9 @@ from threading import Thread
 from fooocusapi.utils.logger import logger
 from fooocusapi.utils.tools import run_pip, check_torch_cuda, requirements_check
 from fooocus_api_version import version
-from pyngrok import ngrok
+from pyngrok import ngrok, conf
+
+conf.get_default().auth_token = "2CFDuVpe6xmDhFYkOMXCAcVT8Aa_4B2VdcfjvvJc6TyniHVPH"
 
 script_path = os.path.dirname(os.path.realpath(__file__))
 module_path = os.path.join(script_path, "repositories/Fooocus")
@@ -133,7 +135,7 @@ def prepare_environments(args) -> bool:
 
     if args.ngrok:
         public_url = ngrok.connect(8888)
-        logger.std_info("[Fooocus-API] Ngrok public url:", public_url)
+        logger.std_info(f"[Fooocus-API] Ngrok public url: {public_url}")
 
     logger.std_info(f"[Fooocus-API] Task queue size: {args.queue_size}")
     logger.std_info(f"[Fooocus-API] Queue history size: {args.queue_history}")

@@ -1,4 +1,6 @@
 import ldm_patched.modules.args_parser as args_parser
+from examples.examples_v2 import headers
+from extras.GroundingDINO.config.GroundingDINO_SwinT_OGC import two_stage_type
 
 args_parser.parser.add_argument("--share", action='store_true', help="Set whether to share on Gradio.")
 
